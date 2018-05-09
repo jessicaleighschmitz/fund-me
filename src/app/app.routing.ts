@@ -14,7 +14,7 @@ const appRoutes: Routes = [
 	   component: PostsComponent
 	},
   {
-	   path: 'listings/:id',
+	   path: 'posts/:id',
 	   component: PostDetailsComponent
 	}
 ];
