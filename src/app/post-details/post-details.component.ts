@@ -5,9 +5,6 @@ import { Post } from '../post.model';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
-
-
-
 @Component({
   selector: 'app-post-details',
   templateUrl: './post-details.component.html',
@@ -25,7 +22,7 @@ ngOnInit() {
  this.route.params.forEach((urlParameters) => {
  this.postId = urlParameters['id'];
 });
-this.postToDisplay =this.postService.getPostById(this.postId);
+this.postToDisplay = this.postService.getPostById(this.postId);
 }
 
 

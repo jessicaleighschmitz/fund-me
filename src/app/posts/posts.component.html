@@ -1,9 +1,9 @@
-<h2>hdgjhdg</h2>
+<h2>Posts</h2>
 <div>
   <ul>
-    <li *ngFor="let currentPost of post | async">
+    <li *ngFor="let currentPost of post | async" (click)="goToDetails(post)">
       <img src={{currentPost.url}}/>
-      <h2>{{currentPost.headline}}</h2>
+      <h2 >{{currentPost.headline}}</h2>
     </li>
   </ul>
 </div>

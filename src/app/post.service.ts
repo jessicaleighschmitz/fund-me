@@ -16,6 +16,6 @@ getPosts() {
   return this.post;
 }
 getPostById(postId: string){
-  this.database.object('post/' + postId)
+  // this.database.object('post/' + postId)
 }
 }
