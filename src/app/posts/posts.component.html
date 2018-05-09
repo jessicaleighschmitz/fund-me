@@ -1,3 +1,9 @@
-<p>
-  posts works!
-</p>
+<h2>hdgjhdg</h2>
+<div>
+  <ul>
+    <li *ngFor="let currentPost of post | async">
+      <img src={{currentPost.url}}/>
+      <h2>{{currentPost.headline}}</h2>
+    </li>
+  </ul>
+</div>

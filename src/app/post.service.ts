@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Post} from './post.model';
+import { Post } from './post.model';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 
@@ -7,11 +7,15 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 
 @Injectable()
 export class PostService {
-  posts: FirebaseListObservable<any[]>;
+  post: FirebaseListObservable<any[]>;
   constructor(private database: AngularFireDatabase){
-    this.posts = database.list('posts');
+    this.post = database.list('post');
+}
 
-
-
+getPosts() {
+  return this.post;
+}
+getPostById(postId: string){
+  this.database.object('post/' + postId)
 }
 }

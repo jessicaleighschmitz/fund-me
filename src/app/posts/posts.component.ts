@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Post } from '../post.model';
 import { PostService } from '../post.service';
-import { FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-posts',
@@ -11,11 +11,16 @@ import { FirebaseListObservable } from 'angularfire2/database';
   providers: [PostService]
 })
 export class PostsComponent implements OnInit {
-  posts: FirebaseListObservable<any[]>;
+  post: FirebaseListObservable<any[]>;
   currentRoute: string = this.router.url;
-  constructor(private router: Router, private sampleService: PostService) { }
+  constructor(private router: Router, private postService: PostService) { }
 
   ngOnInit() {
+    this.post = this.postService.getPosts();
+    console.log(this.post);
   }
 
+  goToDetails(clickedPost) {
+    this.router.navigate(['post', clickedPost.$key]);
+  };
 }
